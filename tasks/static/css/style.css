@@ -1,0 +1,113 @@
+.container-fluid {
+    padding: 0;
+}
+
+/* navbar */
+
+.navbar {
+    border-bottom: 1px solid #333;
+    margin-bottom: 20px;
+}
+
+.navbar-nav {
+    margin: auto;
+
+
+}
+
+.navbar-brand {
+    font-weight: bold;
+    position: absolute;
+    left: 30px;
+
+}
+
+.navbar-light .navbar-nav a.nav-lin {
+    color: #333;
+    letter-spacing: 1px;
+}
+/* botao adicionar */
+.add-div    {
+    background-color: rgb(53, 62, 185);
+    cursor: pointer;
+    display: inline-block;
+    color: white;
+    padding: 8px;
+    border-radius: 5px;
+    margin-right: 25px;
+
+}
+
+.fas.fa-plus {
+    color: white;
+    margin-left: 10px;
+    margin-right: 5px;
+}
+
+/* search */
+
+.fas.fa-search{
+    position: absolute;
+    top: 12px;
+    right: 26px;
+}
+.search-div{
+    position: relative;
+    padding: 0px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    display: inline-block;
+}
+
+
+/* lista de tarefas */
+
+.list-div {
+    padding: 0px;
+}
+
+.task-list{
+    padding-left: 0px;
+}
+
+.task-item {
+    list-style: none;
+    font-size: 20px;
+    height: 50px;
+    padding-top: 10px;
+    border-bottom: 1px dashed #ccc;
+}
+
+.fas.fa-trash, .fas.fa-edit {
+    cursor: pointer;
+    margin: 5px;
+    font-size: 20px;
+    float: right;
+
+}
+
+.fas.fas.fa-trash{
+    color: red;
+
+}
+
+.fas.fa-edit{
+    color: green;
+}
+/* rodapé */
+
+footer {
+    background-color: #333;
+    height: 300px;
+    border-top: 2x solid #202020;
+
+
+}
+
+footer p {
+    text-align: center;
+    font-size: 50px;   
+    color: whitesmoke;
+    top: 40%;
+    position: relative;
+}
