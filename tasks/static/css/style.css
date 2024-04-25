@@ -27,6 +27,11 @@
     letter-spacing: 1px;
 }
 /* botao adicionar */
+
+#add-link {
+    text-decoration: none;
+}
+
 .add-div    {
     background-color: rgb(53, 62, 185);
     cursor: pointer;
