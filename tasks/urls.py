@@ -7,5 +7,7 @@ urlpatterns = [
     path('yourname/<str:name>', views.yourname, name='your-name'),
     path('newtask', views.newtask, name='newtask'),
     path('task/<int:id>', views.taskView, name='task-view'),
-    path('edit/<int:id>', views.edittask, name='edittask' )
+    path('edit/<int:id>', views.edittask, name='edittask' ),
+    path('delete/<int:id>', views.deletetask, name='delete-task' ),
+    path('changestatus/<int:id>', views.changestatus, name='changestatus' ),
 ]

@@ -1,5 +1,5 @@
-{% load static %}
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -19,15 +19,27 @@
               </button>
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  {% if user.is_authenticated %}
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Tarefas</a>
+                    <a class="nav-link" href="/">Tarefas</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="#">Usuarios</a>
                   </li>
+                  {% else %}
+                  <li class="nav-item">
+                    <a class="nav-link" href="/accounts/logins">Entrar</a>
+                  </li>
+                  {% endif %}
                   <li class="nav-item">
                     <a class="nav-link" href="#">Sobre Nós</a>
                   </li>
+                  {% if user.is_authenticated %}
+                  <form class="nav-item" method="post" action="{% url 'logout' %}">
+                    {% csrf_token %}
+                    <button class="nav-link" type="submit">Sair</button>
+                </form>
+                  {% endif %}
               </div>
           </nav>
         {%block content%}
@@ -37,6 +49,7 @@
         </footer>
       </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script> src= "{% static 'js/scripts.js' %}" </script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+    <script src= "{% static 'js/scripts.js' %}"></script>
 </body>
 </html>
