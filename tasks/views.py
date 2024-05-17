@@ -1,12 +1,40 @@
 from django.shortcuts import render, get_object_or_404, redirect # type: ignore
 from django.http import HttpResponse # type: ignore
+
 from .forms import taskForm
 from django.contrib.auth.decorators import login_required # type: ignore
 from .models import Task
 from django.core.paginator import Paginator # type: ignore
 from django.contrib import messages #type: ignore
+from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model # type: ignore
 import datetime
+from django.utils.decorators import method_decorator
+from rest_framework import generics
+from .serializers import Taskserializer
+from rest_framework.authentication import SessionAuthentication, BasicAuthentication
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
+from rest_framework.views import APIView
+
+
 # Create your views here.
+@method_decorator(login_required, name='dispatch')
+class TaskListCreate(generics.ListCreateAPIView):
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
+    def get_queryset(self):
+     return Task.objects.filter(user=self.request.user)
+    queryset = get_queryset
+    serializer_class = Taskserializer
+@method_decorator(login_required, name='dispatch')
+class TaskListRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
+    def get_queryset(self):
+     return Task.objects.filter(user=self.request.user)
+    queryset = Task.objects.all()
+    serializer_class = Taskserializer
+    lookup_field = 'pk'
+
 @login_required
 def tasklist(request):
     search = request.GET.get('search')
