@@ -1,0 +1,3 @@
+CRUD basico que fiz para aprender DJANGO
+
+É uma lista de tarefas, com data, paginação, edição e etc...
